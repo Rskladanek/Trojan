@@ -1,0 +1,17 @@
+altgraph==0.17.4
+certifi==2024.8.30
+cffi==1.17.1
+charset-normalizer==3.4.0
+cryptography==43.0.3
+github3.py==4.0.1
+idna==3.10
+packaging==24.2
+pycparser==2.22
+pyinstaller==6.11.1
+pyinstaller-hooks-contrib==2024.10
+PyJWT==2.10.0
+python-dateutil==2.9.0.post0
+requests==2.32.3
+six==1.16.0
+uritemplate==4.1.1
+urllib3==2.2.3

@@ -2,5 +2,5 @@ import os
 
 def run(**args):
     print("List of user directories:")
-    files = os.listdir('.')
-    return str(files)
+    files = os.listdir('.')  # Lists files in the current directory
+    return str(files)  # Converts the list to a string
