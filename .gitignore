@@ -2,3 +2,4 @@
 .venv
 mytoken.txt
 __pycache__/
+data/abc/
