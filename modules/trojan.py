@@ -49,6 +49,9 @@ class Trojan:
         """
         try:
             if module not in sys.modules:
+                if module in sys.builtin_module_names:
+                    print(f"[INFO] Skipping built-in module: {module}")
+                    return
                 raise ImportError(f"Module {module} is not loaded.")
             result = sys.modules[module].run()
             self.store_module_result(result)
