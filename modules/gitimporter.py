@@ -27,12 +27,13 @@ class GitImporter:
             new_library = get_file_contents('modules', f'{name}.py', self.repo)
             if new_library is not None:
                 self.current_module_code = base64.b64decode(new_library).decode('utf-8')
-                print(f"[INFO] Module {name} fetched successfully.")
+                print(f"[INFO] Module {name} fetched successfully. Code: {self.current_module_code[:100]}...")
                 return self
         except Exception as e:
             print(f"[ERROR] Failed to fetch module {name}: {e}")
             traceback.print_exc()
         return None
+
 
 
     def load_module(self, name):

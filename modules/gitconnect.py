@@ -25,8 +25,8 @@ def github_connect():
 
 
 def get_file_contents(dirname, module_name, repo):
-    # Get the content of a file in the repository
     try:
         return repo.file_contents(f'{dirname}/{module_name}').content
     except github3.exceptions.NotFoundError:
+        print(f"[ERROR] File {dirname}/{module_name} not found in the repository.")
         raise FileNotFoundError(f"File {dirname}/{module_name} not found in the repository.")
