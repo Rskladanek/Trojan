@@ -1,4 +1,6 @@
 import os
+import subprocess
+
 
 def run(**args):
     try:
@@ -13,3 +15,6 @@ def run(**args):
         return result
     except Exception as e:
         return f"Error retrieving IP configuration: {e}"
+    
+if __name__ == "__main__":
+    print(run())
