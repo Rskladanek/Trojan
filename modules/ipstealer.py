@@ -1,6 +1,6 @@
 import os
 
-def run_ipconfig(**args):
+def run(**args):
     try:
         # Execute ipconfig (Windows) or ifconfig (Linux/Mac)
         if os.name =="nt":
