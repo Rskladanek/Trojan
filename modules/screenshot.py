@@ -6,6 +6,7 @@ import win32con
 import win32gui
 import win32ui
 
+
 # Function to retrieve the dimensions of the virtual screen (all monitors combined)
 def get_dimensions():
     # Total width of the virtual screen
@@ -18,6 +19,7 @@ def get_dimensions():
     top = win32api.GetSystemMetrics(win32con.SM_YVIRTUALSCREEN)
     # Return dimensions as a tuple
     return (width, height, left, top)
+
 
 # Function to take a screenshot of the entire virtual screen
 def screenshot(name='screenshot'):
@@ -57,6 +59,7 @@ def screenshot(name='screenshot'):
         print(f"Screenshot saved as: screenshots/{name}.bmp")
     except Exception as e:
         print(f"An error occurred during screenshot: {e}")
+
 
 # Function designed for modular use (e.g., within another project)
 def run(**args):

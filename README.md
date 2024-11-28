@@ -8,14 +8,11 @@ Welcome to the **Trojan Project**, currently in its **beta stage**. This project
 
 ## 🔥 Current Features
 - **System Information Retrieval 🖥️**  
-  Gather detailed information about the target's operating system and environment variables. This module helps understand the victim's system setup.
-
+  Gather detailed information about the target's operating system and environment variables. This module helps understand the victim's system setup and Retrieve detailed network configuration data, including IP addresses, active connections, and public IP information.
+  
 - **Directory Lister 📂**  
   Explore files and directories in the target's system, enabling navigation through the victim's file system.
-
-- **IP Configuration Stealer 🌐**  
-  Retrieve detailed network configuration data, including IP addresses, active connections, and public IP information.
-
+  
 - **Windows Auto Start 🛠️**  
   Automatically configure the program to start with the operating system on Windows devices.
 
@@ -53,7 +50,6 @@ The project follows this structure for modularity and ease of development:
 │   ├── dirlister.py
 │   ├── environment.py
 │   ├── gitimporter.py
-│   ├── ipstealer.py
 │   ├── mytoken.txt
 │   ├── openports.py
 │   ├── screenshot.py
