@@ -22,7 +22,7 @@ def run(**args):
         print(f"\nFolder: {folder_path}")
         
         try:
-            # shows what is inside of dir
+            # Shows what is inside of dir
             contents = os.listdir(folder_path)
             for content in contents:
                 print(f"  {content}")
