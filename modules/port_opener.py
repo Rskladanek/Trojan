@@ -1,10 +1,13 @@
 import subprocess
 
+
 def run(**args):
+
     """
     Opens a specified port in the Windows Firewall.
     Usage: Modify to pass the port number and protocol as arguments.
     """
+    
     try:
         # Define port and protocol (you can adjust these dynamically)
         port = args.get('port', 8080)  # Default port is 8080
