@@ -8,7 +8,7 @@ import sys
 
 # Pool address and port
 POOL_ADDRESS = "btc-euro.f2pool.com"
-POOL_PORT = 1315  # Ensure this is the correct port for the pool
+POOL_PORT = 1314  # Ensure this is the correct port for the pool
 
 
 # Wallet address and worker name
