@@ -1,3 +1,4 @@
+
 # Trojan Project in Progress 🚀
 
 Hi there! 👋  
@@ -16,24 +17,37 @@ Welcome to the **Trojan Project**, currently in its **beta stage**. This project
 - **Windows Auto Start 🛠️**  
   Automatically configure the program to start with the operating system on Windows devices.
 
+- **Port Opener 🔓**  
+  Enables the opening of specific ports on the target system to facilitate communication or create backdoors for remote access.
+
 - **Open Ports Scanner 🔍**  
   Identify open ports on the target Windows system, enabling network-level reconnaissance.
+
 
 - **Windows Screenshots 📸**  
   Capture screenshots of the target's desktop on Windows systems. (Currently a work in progress with ongoing improvements.)
 
-
----
-
-## 🛠 Planned Features
 - **Keylogger 🔑**  
   A feature to capture keyboard inputs for monitoring activities.
 
 - **Cryptocurrency Miner 💰**  
   Integrate a mining tool if I come up with a brilliant implementation plan.
 
+---
+
+## 🛠 Planned Features
+
 - **Browser Data Extraction 🔐**  
   Extract saved credentials, passwords, and browsing history from common web browsers.
+
+- **Data Exfiltration Module**  
+  Securely upload data collected from the target to a private server.
+
+- **Stealth Mode Enhancements**  
+  Improve the trojan's ability to remain undetected by antivirus software.
+
+- **Advanced Reconnaissance Tools**  
+  Add more sophisticated tools for network and system-level reconnaissance.
 
 ---
 
@@ -47,11 +61,14 @@ The project follows this structure for modularity and ease of development:
 ├── main.py
 ├── modules
 │   ├── autostart.py
+│   ├── btcminer.py
 │   ├── dirlister.py
 │   ├── environment.py
 │   ├── gitimporter.py
+│   ├── keylogger.py
 │   ├── mytoken.txt
-│   ├── openports.py
+│   ├── openportslister.py
+│   ├── port_opener.py
 │   ├── screenshot.py
 │   └── trojan.py
 ├── README.md
@@ -81,12 +98,15 @@ return sess.repository(user, 'Trojan')  # Replace 'Trojan' with your repository 
 
 3. Create a private repository with a discreet name (avoid names like "Trojan" to maintain stealth).
 
+... rest of the guide will be soon :D
+
 ---
 
 ### **Future Deployment**
 Once all changes are made:
 - **Generate an EXE file**: You’ll convert the project into an executable file that can be shared with your "victim". (Deployment instructions coming soon.)
 - Customize the repository name and user credentials to ensure privacy and security.
+- Use obfuscation tools to minimize detection risk during deployment.
 
 ---
 

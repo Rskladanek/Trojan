@@ -34,7 +34,6 @@ def run(**args):
     logger.start()
     timeout = time.time() + 60 * 10  # 10 minutes
 
-
     try:
         while not logger.stop_event.is_set() and time.time() < timeout:
             time.sleep(1)

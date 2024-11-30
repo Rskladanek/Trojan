@@ -5,6 +5,7 @@ charset-normalizer==3.4.0
 cryptography==43.0.3
 github3.py==4.0.1
 idna==3.10
+keyboard==0.13.5
 packaging==24.2
 pycparser==2.22
 pyinstaller==6.11.1
