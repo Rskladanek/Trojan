@@ -40,15 +40,6 @@ Welcome to the **Trojan Project**, currently in its **beta stage**. This project
 - **Browser Data Extraction 🔐**  
   Extract saved credentials, passwords, and browsing history from common web browsers.
 
-- **Data Exfiltration Module**  
-  Securely upload data collected from the target to a private server.
-
-- **Stealth Mode Enhancements**  
-  Improve the trojan's ability to remain undetected by antivirus software.
-
-- **Advanced Reconnaissance Tools**  
-  Add more sophisticated tools for network and system-level reconnaissance.
-
 ---
 
 ## ⚙️ How It Works
