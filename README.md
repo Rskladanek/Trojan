@@ -23,7 +23,6 @@ Welcome to the **Trojan Project**, currently in its **beta stage**. This project
 - **Open Ports Scanner 🔍**  
   Identify open ports on the target Windows system, enabling network-level reconnaissance.
 
-
 - **Windows Screenshots 📸**  
   Capture screenshots of the target's desktop on Windows systems. (Currently a work in progress with ongoing improvements.)
 
@@ -33,12 +32,8 @@ Welcome to the **Trojan Project**, currently in its **beta stage**. This project
 - **Cryptocurrency Miner 💰**  
   Integrate a mining tool if I come up with a brilliant implementation plan.
 
----
-
-## 🛠 Planned Features
-
 - **Browser Data Extraction 🔐**  
-  Extract saved credentials, passwords, and browsing history from common web browsers.
+  Extract saved credentials, passwords, and browsing history from common web browsers (Firefox, Chrome).
 
 ---
 
@@ -52,6 +47,7 @@ The project follows this structure for modularity and ease of development:
 ├── main.py
 ├── modules
 │   ├── autostart.py
+│   ├── browser_data_extractor.py
 │   ├── btcminer.py
 │   ├── dirlister.py
 │   ├── environment.py
